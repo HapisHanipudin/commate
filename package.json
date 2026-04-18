@@ -1,0 +1,18 @@
+{
+  "name": "project-abcde",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"bun run dev:api\" \"bun run dev:web\" --names api,web --prefix-colors cyan,magenta",
+    "dev:api": "cd apps/api && bun run dev",
+    "dev:web": "cd apps/web && bun run dev",
+    "deploy:api": "cd apps/api && bun run deploy",
+    "deploy:web": "cd apps/web && bun run deploy"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

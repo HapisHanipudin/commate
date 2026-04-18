@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "commate-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "GITHUB_CLIENT_ID": "",
+    "GITHUB_CLIENT_SECRET": "",
+    "WAKATIME_CLIENT_ID": "",
+    "WAKATIME_CLIENT_SECRET": "",
+    "NEON_DATABASE_URL": "",
+    "JWT_SECRET": "",
+  },
+}
