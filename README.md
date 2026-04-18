@@ -61,16 +61,7 @@ bun run dev
 
 ### Database & Drizzle
 
-```bash
-# Generate migration dari schema
-bun run db:generate
-
-# Jalankan migration ke Neon DB
-bun run db:migrate
-
-# Buka Drizzle Studio (GUI database)
-bun run db:studio
-```
+Database tooling belum diaktifkan di repo ini. Saat ini workflow deploy API tidak menjalankan migrasi otomatis.
 
 ---
 

@@ -5,15 +5,22 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@commate/shared": "workspace:*",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
     "hono": "latest",
-    "@commate/shared": "workspace:*"
+    "pg": "^8.20.0"
   },
   "devDependencies": {
-    "wrangler": "latest",
     "@cloudflare/workers-types": "latest",
-    "typescript": "latest"
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.21.0",
+    "typescript": "latest",
+    "wrangler": "latest"
   }
 }

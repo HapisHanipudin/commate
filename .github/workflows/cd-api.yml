@@ -24,13 +24,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: bun install
-
-      - name: Run database migrations
-        working-directory: apps/api
-        env:
-          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
-        run: bun run db:migrate
+        run: bun install --frozen-lockfile
 
       - name: Deploy to Cloudflare Workers
         working-directory: apps/api
