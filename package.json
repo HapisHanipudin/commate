@@ -1,5 +1,5 @@
 {
-  "name": "project-abcde",
+  "name": "commate",
   "private": true,
   "workspaces": [
     "apps/*",
