@@ -10,7 +10,10 @@
     "dev:api": "cd apps/api && bun run dev",
     "dev:web": "cd apps/web && bun run dev",
     "deploy:api": "cd apps/api && bun run deploy",
-    "deploy:web": "cd apps/web && bun run deploy"
+    "deploy:web": "cd apps/web && bun run deploy",
+    "typecheck:api": "cd apps/api && bun run typecheck",
+    "typecheck:web": "cd apps/web && bun run typecheck",
+    "typecheck": "bun run typecheck:api && bun run typecheck:web"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
