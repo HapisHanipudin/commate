@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -18,16 +20,25 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
-	return (
-		<html lang="en">
-			<head>
-				<link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
-			</head>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
-		</html>
-	);
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      </head>
+      {/* Tambahkan class min-h-screen dan flex flex-col agar footer selalu di bawah */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+        <Navbar />          {/* <--- PASANG NAVBAR DI SINI */}
+        
+        <main className="flex-grow">
+          {children}        {/* <--- Isi halaman akan muncul di sini */}
+        </main>
+        
+        <Footer />          {/* <--- PASANG FOOTER DI SINI */}
+      </body>
+    </html>
+  );
 }
