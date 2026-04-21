@@ -44,7 +44,7 @@ Login GitHub  →  AI Skill Profiling  →  Semantic Match
 ### Setup
 
 ```bash
-git clone https://github.com/npd-team/commate.git
+git clone https://github.com/HapisHanipudin/commate.git
 cd commate
 bun install
 ```

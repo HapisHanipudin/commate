@@ -6,6 +6,7 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "cf-typegen": "wrangler types",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -17,8 +18,11 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "latest",
+    "@typescript-eslint/eslint-plugin": "^8",
+    "@typescript-eslint/parser": "^8",
     "@types/pg": "^8.20.0",
     "drizzle-kit": "^0.31.10",
+    "eslint": "^9",
     "tsx": "^4.21.0",
     "typescript": "latest",
     "wrangler": "latest"
