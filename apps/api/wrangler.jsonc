@@ -14,5 +14,6 @@
     "WAKATIME_CLIENT_SECRET": "",
     "NEON_DATABASE_URL": "",
     "JWT_SECRET": "",
+    "CORS_ORIGINS": "http://localhost:3000,https://commate-fe.pages.dev,https://*.commate-fe.pages.dev",
   },
 }

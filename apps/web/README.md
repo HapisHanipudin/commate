@@ -28,14 +28,15 @@ npm run preview
 # or similar package manager command
 ```
 
-## Deploy
+## Deploy (Cloudflare Pages)
 
-Deploy the application to Cloudflare:
+Untuk deployment via Cloudflare Pages (dengan preview PR), gunakan konfigurasi build berikut:
 
-```bash
-npm run deploy
-# or similar package manager command
-```
+- Root directory: `/` (repo root)
+- Build command: `bun install --frozen-lockfile && cd apps/web && npx @cloudflare/next-on-pages@1`
+- Build output directory: `apps/web/.vercel/output/static`
+
+Pastikan `NEXT_PUBLIC_API_URL` sudah diisi di environment variable Cloudflare Pages.
 
 ## Learn More
 

@@ -30,7 +30,7 @@
   },
   "upload_source_maps": true,
   "vars": {
-    "NEXT_PUBLIC_API_URL": "http://localhost:8787",
+    "NEXT_PUBLIC_API_URL": "https://commate-api.hapishanipudin.workers.dev/",
   },
   /**
    * Smart Placement

@@ -39,3 +39,4 @@ Pastikan variabel di bawah tersedia di `.dev.vars` atau `.env`:
 - `GITHUB_CLIENT_SECRET`
 - `WAKATIME_CLIENT_ID`
 - `WAKATIME_CLIENT_SECRET`
+- `CORS_ORIGINS` (comma-separated, support wildcard `*.`)

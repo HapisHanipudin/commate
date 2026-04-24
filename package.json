@@ -22,8 +22,8 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "apps/api/**/*.{ts,tsx,js,jsx}": "eslint --config apps/api/eslint.config.mjs",
-    "apps/web/**/*.{js,jsx,ts,tsx}": "eslint --config apps/web/eslint.config.mjs"
+    "apps/api/**/*.{ts,tsx,js,jsx}": "bunx eslint --config apps/api/eslint.config.mjs",
+    "apps/web/**/*.{js,jsx,ts,tsx}": "bunx eslint --config apps/web/eslint.config.mjs"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",

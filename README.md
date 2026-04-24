@@ -59,6 +59,42 @@ bun run dev
 - API → `http://localhost:8787`
 - Web → `http://localhost:3000`
 
+## Deployment Config (Pages + Worker)
+
+Konfigurasi ini direkomendasikan untuk setup terpisah agar tRPC dari frontend ke API aman di production dan preview PR.
+
+### 1) Frontend (`apps/web`) — Cloudflare Pages
+
+- Root directory: `/` (repo root)
+- Build command: `bun install --frozen-lockfile && cd apps/web && npx @cloudflare/next-on-pages@1`
+- Build output directory: `apps/web/.vercel/output/static`
+- Build comments: `Enabled` (agar PR dapat preview URL)
+- Environment variable:
+  - `NEXT_PUBLIC_API_URL=https://<worker-name>.<subdomain>.workers.dev`
+
+Untuk preview branch/PR, gunakan `NEXT_PUBLIC_API_URL` yang menunjuk ke endpoint API yang bisa diakses publik.
+
+### 2) API (`apps/api`) — Cloudflare Worker
+
+- Root directory: `/` (repo root)
+- Build command: `bun install --frozen-lockfile && cd apps/api && bun run build`
+- Deploy command: `npx wrangler deploy --config apps/api/wrangler.jsonc`
+- Version command: `npx wrangler versions upload --config apps/api/wrangler.jsonc`
+- Variables/Secrets wajib:
+  - `GITHUB_CLIENT_ID`
+  - `GITHUB_CLIENT_SECRET`
+  - `WAKATIME_CLIENT_ID`
+  - `WAKATIME_CLIENT_SECRET`
+  - `NEON_DATABASE_URL`
+  - `JWT_SECRET`
+  - `CORS_ORIGINS`
+
+Contoh `CORS_ORIGINS`:
+
+`http://localhost:3000,https://commate-web.pages.dev,https://*.commate-web.pages.dev`
+
+`CORS_ORIGINS` mendukung wildcard `*.` untuk domain preview Pages.
+
 ### Database & Drizzle
 
 Boilerplate Drizzle untuk API sudah aktif di `apps/api`.

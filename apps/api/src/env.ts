@@ -11,6 +11,7 @@ export const envSchema = z.object({
     message: "NEON_DATABASE_URL harus berupa URL valid",
   }),
   JWT_SECRET: z.string().min(32, "JWT_SECRET minimal 32 karakter"),
+  CORS_ORIGINS: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema> & {
