@@ -45,6 +45,7 @@
         "@next/eslint-plugin-next": "^16.2.4",
         "@opennextjs/cloudflare": "^1.19.1",
         "eslint-plugin-react-hooks": "^7.1.1",
+        "husky": "^9.1.7",
         "next": "16.2.3",
         "react": "19.1.5",
         "react-dom": "19.1.5",
