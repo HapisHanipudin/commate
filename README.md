@@ -61,7 +61,17 @@ bun run dev
 
 ### Database & Drizzle
 
-Database tooling belum diaktifkan di repo ini. Saat ini workflow deploy API tidak menjalankan migrasi otomatis.
+Boilerplate Drizzle untuk API sudah aktif di `apps/api`.
+
+```bash
+cd apps/api
+bun run db:generate   # generate migration dari schema
+bun run db:migrate    # jalankan migration SQL ke database
+bun run db:push       # sync schema langsung (dev cepat)
+bun run db:studio     # buka drizzle studio
+```
+
+Pastikan `NEON_DATABASE_URL` sudah diisi di `.dev.vars` atau `.env` sebelum menjalankan command di atas.
 
 ---
 

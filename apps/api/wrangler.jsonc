@@ -4,6 +4,9 @@
   "main": "src/index.ts",
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat"],
+  "ai": {
+    "binding": "AI",
+  },
   "vars": {
     "GITHUB_CLIENT_ID": "",
     "GITHUB_CLIENT_SECRET": "",
