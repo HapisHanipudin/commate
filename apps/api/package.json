@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@commate/shared": "workspace:*",
+    "@commate/shared": "file:../../packages/shared",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "hono": "latest",
