@@ -7,6 +7,15 @@
   "ai": {
     "binding": "AI",
   },
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "be17a1bf64c2496b9ad7db93e8f6290f",
+
+      // Optional. Can be used to connect to a local database for local development with `wrangler dev`
+      "localConnectionString": "<LOCAL_CONNECTION_STRING_FOR_LOCAL_DEVELOPMENT_HERE>",
+    },
+  ],
   "vars": {
     "GITHUB_CLIENT_ID": "",
     "GITHUB_CLIENT_SECRET": "",
