@@ -162,7 +162,7 @@ export const profileRefreshHandler: RouteHandler<
     .values({
       id: vectorId,
       userId: existing.id,
-      vector: embedding,
+      embedding: embedding,
       topSkills,
       githubScore,
       wakatimeScore,
@@ -171,7 +171,7 @@ export const profileRefreshHandler: RouteHandler<
     .onConflictDoUpdate({
       target: schema.skillVectors.id,
       set: {
-        vector: embedding,
+        embedding: embedding,
         topSkills,
         githubScore,
         wakatimeScore,
