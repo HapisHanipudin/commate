@@ -10,6 +10,13 @@ export const envSchema = z.object({
   NEON_DATABASE_URL: z.url({
     message: "NEON_DATABASE_URL harus berupa URL valid",
   }),
+  HYPERDRIVE: z
+    .object({
+      connectionString: z
+        .string()
+        .min(1, "HYPERDRIVE.connectionString wajib diisi"),
+    })
+    .optional(),
   JWT_SECRET: z.string().min(32, "JWT_SECRET minimal 32 karakter"),
   CORS_ORIGINS: z.string().optional(),
 });

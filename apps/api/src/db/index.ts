@@ -4,7 +4,9 @@ import type { Env } from "../env";
 import * as schema from "./schema";
 
 export function createDb(env: Env) {
-  const sql = neon(env.NEON_DATABASE_URL);
+  const connectionString =
+    env.HYPERDRIVE?.connectionString ?? env.NEON_DATABASE_URL;
+  const sql = neon(connectionString);
   return drizzle(sql, { schema });
 }
 

@@ -1,10 +1,11 @@
 import {
   boolean,
-  jsonb,
   pgTable,
   real,
   text,
   timestamp,
+  vector,
+  index,
 } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
@@ -26,19 +27,29 @@ export const users = pgTable("users", {
     .notNull(),
 });
 
-export const skillVectors = pgTable("skill_vectors", {
-  id: text("id").primaryKey(),
-  userId: text("user_id")
-    .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
-  vector: jsonb("vector").notNull(),
-  topSkills: text("top_skills").array().notNull().default([]),
-  githubScore: real("github_score").notNull(),
-  wakatimeScore: real("wakatime_score"),
-  updatedAt: timestamp("updated_at", { withTimezone: true })
-    .defaultNow()
-    .notNull(),
-});
+export const skillVectors = pgTable(
+  "skill_vectors",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    embedding: vector("embedding", { dimensions: 768 }).notNull(), // ← native vector type
+    topSkills: text("top_skills").array().notNull().default([]),
+    githubScore: real("github_score").notNull(),
+    wakatimeScore: real("wakatime_score"),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    // IVFFlat index untuk cosine similarity
+    index("embedding_cosine_idx").using(
+      "ivfflat",
+      table.embedding.op("vector_cosine_ops"),
+    ),
+  ],
+);
 
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
